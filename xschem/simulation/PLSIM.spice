@@ -1,4 +1,4 @@
-** sch_path: /home/ttuser/tt08-bgr/xschem/PLSIM.sch
+** sch_path: /home/ttuser/test0/tt08-bgr/xschem/PLSIM.sch
 **.subckt PLSIM
 V2 VSS GND 0
 R1 Vbgr VSS 11G m=1
@@ -60,8 +60,8 @@ VDD net1 VDD 0
 **.ends
 
 * expanding   symbol:  core_prel.sym # of pins=3
-** sym_path: /home/ttuser/tt08-bgr/xschem/core_prel.sym
-** sch_path: /home/ttuser/tt08-bgr/xschem/core_prel.sch
+** sym_path: /home/ttuser/test0/tt08-bgr/xschem/core_prel.sym
+** sch_path: /home/ttuser/test0/tt08-bgr/xschem/core_prel.sch
 .subckt core_prel VDD Vbgr VSS
 *.ipin VDD
 *.ipin VSS
@@ -106,11 +106,19 @@ XM14 VSS VSS VSS VSS sky130_fd_pr__nfet_01v8_lvt L=0.5 W=2 nf=1 ad='int((nf+1)/2
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM15 Gcm2 VSS VSS VSS sky130_fd_pr__nfet_01v8_lvt L=0.5 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM17 Gcm1 VSS VSS VSS sky130_fd_pr__nfet_01v8_lvt L=4 W=8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM16 Gcm1 VSS VSS VSS sky130_fd_pr__nfet_01v8_lvt L=4 W=8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM18 opout VDD VDD VDD sky130_fd_pr__pfet_01v8_lvt L=1 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM19 opout VDD VDD VDD sky130_fd_pr__pfet_01v8_lvt L=1 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 .ends
 
 
 * expanding   symbol:  core_prel_parax.sym # of pins=3
-** sym_path: /home/ttuser/tt08-bgr/xschem/core_prel.sym
-.include /home/ttuser/tt08-bgr/mag/core_prel.sim.spice
+** sym_path: /home/ttuser/test0/tt08-bgr/xschem/core_prel.sym
+.include /home/ttuser/test0/tt08-bgr/mag/core_prel.sim.spice
 .GLOBAL GND
 .end
