@@ -9,7 +9,7 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+This project involves designing a bandgap reference circuit that provides a stable 1.2V output across a temperature range of 0 to 80°C. A startup circuit is included to initialize the entire system upon power-up. The circuit operates at 1.8V and consumes xxx power
 
 ## How to test
 
