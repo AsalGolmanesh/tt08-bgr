@@ -13,8 +13,8 @@ This project involves designing a bandgap reference circuit that provides a stab
 
 ## How to test
 
-Explain how to use your project
+By just giving the supplies.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+Multimeter and voltage source.
