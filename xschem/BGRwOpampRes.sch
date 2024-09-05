@@ -944,12 +944,6 @@ C {devices/lab_pin.sym} -650 -410 0 1 {name=p42 sig_type=std_logic lab=opout
 }
 C {devices/lab_pin.sym} -600 -345 0 1 {name=p38 sig_type=std_logic lab=opout
 }
-C {sky130_fd_pr/res_xhigh_po_1p41.sym} -335 -195 0 0 {name=R1
-L=27.4
-model=res_xhigh_po_1p41
-spiceprefix=X
-mult=1
-spice_ignore=true}
 C {sky130_fd_pr/res_xhigh_po_0p35.sym} -840 -110 0 0 {name=R2
 L=6
 model=res_xhigh_po_0p35

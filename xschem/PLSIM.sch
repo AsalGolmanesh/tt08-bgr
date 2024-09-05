@@ -25,9 +25,8 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color="4 6"
-node="vbgr_parax
-vbgr"}
+color=4
+node=vbgr_parax}
 C {devices/vsource.sym} -400 125 0 0 {name=V1 value=1.8 savecurrent=false
 spice_ignore=true}
 C {devices/vsource.sym} -490 125 0 0 {name=V2 value=0 savecurrent=false
@@ -47,8 +46,8 @@ value="
 .control
 save all
 op
-write PLSIM.raw
-dc TEMP -40 160 10
+write PLSIM1.raw
+dc TEMP 0 100 1
 plot deriv(Vbgr)
 plot Vbgr
 plot deriv(Vbgr_parax)
@@ -66,18 +65,22 @@ value="
 "
 spice_ignore=false
 }
-C {devices/lab_pin.sym} -140 -80 3 1 {name=p1 sig_type=std_logic lab=VDD
+C {devices/lab_pin.sym} -140 -97.5 3 1 {name=p1 sig_type=std_logic lab=VDD
 }
-C {devices/lab_pin.sym} -140 -60 0 0 {name=p2 sig_type=std_logic lab=VSS}
-C {devices/lab_pin.sym} 160 -80 3 1 {name=p4 sig_type=std_logic lab=Vbgr
+C {devices/lab_pin.sym} -140 -77.5 0 0 {name=p2 sig_type=std_logic lab=VSS
 }
-C {devices/res.sym} 160 -50 0 0 {name=R1
+C {devices/lab_pin.sym} 160 -97.5 3 1 {name=p4 sig_type=std_logic lab=Vbgr
+}
+C {devices/res.sym} 160 -67.5 0 0 {name=R1
 value=11G
 footprint=1206
 device=resistor
-m=1}
-C {devices/lab_pin.sym} 160 -20 0 0 {name=p5 sig_type=std_logic lab=VSS}
-C {core_prel.sym} 10 -70 0 0 {name=x1}
+m=1
+}
+C {devices/lab_pin.sym} 160 -37.5 0 0 {name=p5 sig_type=std_logic lab=VSS
+}
+C {core_prel.sym} 10 -87.5 0 0 {name=x1
+}
 C {devices/lab_pin.sym} -130 170 3 1 {name=p6 sig_type=std_logic lab=VDD
 }
 C {devices/lab_pin.sym} -130 190 0 0 {name=p7 sig_type=std_logic lab=VSS
@@ -97,12 +100,16 @@ schematic=core_prel_parax.sim
 spice_sym_def="tcleval(.include [file normalize ../mag/core_prel.sim.spice])"
 tclcommand="textwindow [file normalize ../mag/core_prel.sim.spice]"
 }
-C {devices/code.sym} 240 315 0 0 {name=NGSPICE
+C {devices/spice_probe.sym} 160 -97.5 0 0 {name=p3 attrs=""
+}
+C {devices/spice_probe.sym} 170 170 0 0 {name=p8 attrs=""
+}
+C {devices/code.sym} 235 320 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 * this experimental option enables mos model bin 
 * selection based on W/NF instead of W
-.options wnflag=1 XMU=0.49 METHOD=GEAR ITL4=100 CHGTOL=1e-15 TRTOL=1 RELTOL=0.0001 VNTOL=0.1u
+* .options wnflag=1 XMU=0.49 METHOD=GEAR ITL4=100 CHGTOL=1e-15 TRTOL=1 RELTOL=0.0001 VNTOL=0.1u
 .param ABSVAR=0.03
 .param VCCGAUSS=agauss(1.8, 'ABSVAR', 1)
 .param VDD=VCCGAUSS
@@ -130,27 +137,24 @@ value="
     end
     echo \\"Run=$&run, Temp=$temp\\"
     tran 0.2u 50u 
-    write plsim.raw
+    write asal_tb_bandgap_r.raw
     let run = run + 1
   end
 .endc
 " }
-C {devices/vsource.sym} 455 565 0 0 {name=V3 value="pwl 0 0 1u 0 4u VDD"
+C {devices/vsource.sym} 320 580 0 0 {name=V3 value="pwl 0 0 1u 0 4u VDD"
 }
-C {devices/lab_pin.sym} 455 475 0 0 {name=l29 sig_type=std_logic lab=VDD
+C {devices/lab_pin.sym} 320 490 0 0 {name=l29 sig_type=std_logic lab=VDD
 }
-C {devices/lab_pin.sym} 455 595 0 0 {name=l4 sig_type=std_logic lab=VSS
+C {devices/lab_pin.sym} 320 610 0 0 {name=l4 sig_type=std_logic lab=VSS
 }
-C {devices/vsource_arith.sym} 295 565 0 0 {name=E5 VOL=temper MAX=200 MIN=-200
+C {devices/vsource_arith.sym} 160 580 0 0 {name=E5 VOL=temper MAX=200 MIN=-200
 }
-C {devices/lab_pin.sym} 295 535 0 1 {name=p113 lab=TEMPERAT
+C {devices/lab_pin.sym} 160 550 0 1 {name=p113 lab=TEMPERAT
 }
-C {devices/lab_pin.sym} 295 595 0 0 {name=p114 lab=VSS
+C {devices/lab_pin.sym} 160 610 0 0 {name=p114 lab=VSS
 }
-C {devices/spice_probe.sym} 295 535 0 1 {name=p41 attrs=""
+C {devices/spice_probe.sym} 160 550 0 1 {name=p41 attrs=""
 }
-C {devices/ammeter.sym} 455 505 2 0 {name=VDD
-}
-C {devices/spice_probe.sym} 160 -80 0 0 {name=p3 attrs=""}
-C {devices/spice_probe.sym} 170 170 0 0 {name=p8 attrs=""
+C {devices/ammeter.sym} 320 520 2 0 {name=VDD
 }
