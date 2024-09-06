@@ -9,9 +9,8 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-This project involves designing a bandgap reference circuit with Skywater 130nm CMOS technology that provides a stable 1.2V output across a temperature range of 0 to 80°C. A startup circuit is included to initialize the entire system upon power-up. The circuit operates at 1.8V and consumes 0.35mwatt total power. 
-The following image shows the pre and post layout simulation of bandgap voltage across temperature (tt corner)
-![Alt text](/home/ttuser/tt08_bgr/image/prepostbgr.png)
+This project involves designing a bandgap reference circuit with Skywater 130nm CMOS technology that provides a stable 1.17V output across a temperature range of 0 to 80°C. A startup circuit is included to initialize the entire system upon power-up. The circuit operates at 1.8V and consumes 0.35mwatt total power. 
+
 
 ## How to test
 
