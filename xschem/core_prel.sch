@@ -532,7 +532,7 @@ C {devices/lab_pin.sym} 590 -165 0 0 {name=p40 sig_type=std_logic lab=VSS
 C {devices/lab_pin.sym} 515 -400 1 1 {name=p43 sig_type=std_logic lab=VSS
 }
 C {sky130_fd_pr/res_xhigh_po_0p35.sym} 220 20 0 0 {name=R19
-L=1.05
+L=0.93
 model=res_xhigh_po_0p35
 spiceprefix=X
 mult=1}
@@ -698,7 +698,7 @@ C {devices/lab_pin.sym} 640 -45 0 0 {name=p55 sig_type=std_logic lab=VDD
 C {devices/lab_pin.sym} -1073.75 87.5 0 1 {name=p66 sig_type=std_logic lab=VDD
 }
 C {sky130_fd_pr/res_xhigh_po_0p35.sym} -725 417.5 0 0 {name=R8
-L=1.05
+L=0.93
 model=res_xhigh_po_0p35
 spiceprefix=X
 mult=1}
@@ -707,7 +707,7 @@ C {devices/lab_pin.sym} -725 462.5 0 1 {name=p69 sig_type=std_logic lab=VSS
 C {devices/lab_pin.sym} -745 417.5 1 1 {name=p70 sig_type=std_logic lab=VSS
 }
 C {sky130_fd_pr/res_xhigh_po_0p35.sym} -568.75 418.75 0 0 {name=R9
-L=1.05
+L=0.93
 model=res_xhigh_po_0p35
 spiceprefix=X
 mult=1}

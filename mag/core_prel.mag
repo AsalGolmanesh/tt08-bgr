@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1725529118
+timestamp 1725582067
 << nwell >>
 rect 7885 -7401 8086 -7396
 rect 7885 -9194 10486 -7401
@@ -866,7 +866,7 @@ use sky130_fd_pr__res_xhigh_po_0p69_5SXZXT  sky130_fd_pr__res_xhigh_po_0p69_5SXZ
 timestamp 1725054543
 transform 1 0 19728 0 1 -11508
 box -1522 -708 1522 708
-use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  XQ2 $PDKPATH/libs.ref/sky130_fd_pr/mag
+use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  XQ2 ~/pdk/sky130A/libs.ref/sky130_fd_pr/mag
 array 0 4 1288 0 5 1288
 timestamp 1704896540
 transform 0 -1 17563 1 0 -17226

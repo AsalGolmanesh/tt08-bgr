@@ -27,9 +27,9 @@ unitx=1
 logx=0
 logy=0
 }
-B 2 390 -915 1190 -515 {flags=graph
-y1=0.8
-y2=2.8
+B 2 400 -900 1200 -500 {flags=graph
+y1=-50
+y2=140
 ypos1=0
 ypos2=2
 divy=5
@@ -41,12 +41,8 @@ divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="vx
-vy
-minus
-plus
-vp"
-color="5 10 12 14 7"
+node=temperat
+color=4
 dataset=-1
 unitx=1
 logx=0
@@ -348,6 +344,8 @@ N -860 -60 -840 -60 {
 lab=VSS}
 N -1485 -375 -1485 -170 {
 lab=MINUS}
+N 80 -460 80 -440 {
+lab=TEMPERAT}
 C {sky130_fd_pr/pnp_05v5.sym} -1340 30 0 0 {name=Q1
 model=pnp_05v5_W3p40L3p40
 m=1
@@ -421,14 +419,14 @@ C {devices/lab_pin.sym} -655 -560 0 1 {name=p13 sig_type=std_logic lab=Vbgr
 
 }
 C {devices/vsource.sym} -250 -795 0 0 {name=V1 value=1.8 savecurrent=false
-}
+spice_ignore=true}
 C {devices/vsource.sym} -340 -795 0 0 {name=V2 value=0 savecurrent=false}
 C {devices/gnd.sym} -250 -765 0 0 {name=l1 lab=GND
-}
+spice_ignore=true}
 C {devices/gnd.sym} -340 -765 0 0 {name=l2 lab=GND}
 C {devices/lab_pin.sym} -340 -825 1 0 {name=p14 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} -250 -825 3 1 {name=p15 sig_type=std_logic lab=VDD
-}
+spice_ignore=true}
 C {devices/simulator_commands.sym} -175 -670 0 0 {name=COMMANDS
 simulator=ngspice
 only_toplevel=false
@@ -548,14 +546,14 @@ save @m.xm11.msky130_fd_pr__nfet_01v8_lvt[vth]
 save all
 op
 write BGRwOpampRes.raw
-dc TEMP -40 140 1
+dc TEMP 0 80 1
 plot deriv(Vbgr)
 plot Vbgr
 
 .endc
 "
-}
-C {devices/code.sym} -145 -880 0 0 {name=TT_MODELS
+spice_ignore=true}
+C {devices/code.sym} -145 -880 0 0 {name=MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -584,7 +582,7 @@ C {devices/ammeter.sym} -1020 -545 0 0 {name=Vmeas1 savecurrent=true}
 C {devices/spice_probe_vdiff.sym} -1425 -630 0 0 {name=p16}
 C {devices/spice_probe_vdiff.sym} -935 -630 0 0 {name=p17}
 C {devices/spice_probe_vdiff.sym} -630 -615 0 0 {name=p18}
-C {devices/simulator_commands.sym} -20 -865 0 0 {name=COMMANDS4
+C {devices/simulator_commands.sym} -20 -865 0 0 {name=sweepcommand
 simulator=ngspice
 only_toplevel=false
 place=end
@@ -624,7 +622,7 @@ end
 .endc
 "
 spice_ignore=true}
-C {devices/simulator_commands.sym} 115 -865 0 0 {name=COMMANDS1
+C {devices/simulator_commands.sym} 115 -865 0 0 {name=parameterisedsim
 simulator=ngspice
 only_toplevel=false
 place=end
@@ -802,31 +800,6 @@ C {devices/lab_pin.sym} -1055 -500 2 1 {name=p34 sig_type=std_logic lab=PLUS
 }
 C {devices/lab_pin.sym} -1060 -110 2 1 {name=p11 sig_type=std_logic lab=VSS
 }
-C {devices/simulator_commands.sym} 0 -665 0 0 {name=COMMANDS2
-simulator=ngspice
-only_toplevel=false
-place=end
-value="
-.param qm = 0.35
-.option warn=1
-.control
-
-let qmsr = 0.35
-let step = 0.1
-
-
-while qmsr <= 1
-   alterparam qm = $&qmsr
-   reset 
-   save all    
-   dc TEMP -40 140 1
-   plot deriv(Vbgr)  title $&qmsr
-   plot (Vbgr)  title $&qmsr
-   let qmsr = qmsr + step
-end
-.endc
-"
-spice_ignore=true}
 C {devices/ngspice_get_expr.sym} -1860 -715 0 0 {name=r17 node="[expr [ngspice::get_voltage \{@m.xm11.msky130_fd_pr__nfet_01v8_lvt[vgs]\}]-[ngspice::get_voltage \{@m.xm11.msky130_fd_pr__nfet_01v8_lvt[vth]\}]]"
 descr="Vov11="
 }
@@ -841,7 +814,7 @@ C {devices/lab_pin.sym} -715 -345 2 1 {name=p39 sig_type=std_logic lab=Vbgr
 }
 C {devices/lab_pin.sym} -650 -295 0 0 {name=p40 sig_type=std_logic lab=VSS
 }
-C {devices/code.sym} 155 -670 0 0 {name=NGSPICE
+C {devices/code.sym} -15 -690 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 * this experimental option enables mos model bin 
@@ -874,27 +847,27 @@ value="
     end
     echo \\"Run=$&run, Temp=$temp\\"
     tran 0.2u 50u 
-    write asal_tb_bandgap_r.raw
+    write lineregulation.raw
     let run = run + 1
   end
 .endc
-" spice_ignore=true}
-C {devices/vsource.sym} 240 -410 0 0 {name=V3 value="pwl 0 0 1u 0 4u VDD"
-spice_ignore=true}
-C {devices/lab_pin.sym} 240 -500 0 0 {name=l29 sig_type=std_logic lab=VDD
-spice_ignore=true}
-C {devices/lab_pin.sym} 240 -380 0 0 {name=l4 sig_type=std_logic lab=VSS
-spice_ignore=true}
-C {devices/vsource_arith.sym} 80 -410 0 0 {name=E5 VOL=temper MAX=200 MIN=-200
-spice_ignore=true}
-C {devices/lab_pin.sym} 80 -440 0 1 {name=p113 lab=TEMPERAT
-spice_ignore=true}
+" }
+C {devices/vsource.sym} -20 -350 0 0 {name=V3 value="pwl 0 0 1u 0 4u VDD"
+}
+C {devices/lab_pin.sym} -20 -440 0 0 {name=l29 sig_type=std_logic lab=VDD
+}
+C {devices/lab_pin.sym} -20 -320 0 0 {name=l4 sig_type=std_logic lab=VSS
+}
+C {devices/vsource_arith.sym} -180 -350 0 0 {name=E5 VOL=temper MAX=200 MIN=-200
+}
+C {devices/lab_pin.sym} 80 -460 0 1 {name=p113 lab=TEMPERAT
+}
 C {devices/lab_pin.sym} 80 -380 0 0 {name=p114 lab=VSS
-spice_ignore=true}
-C {devices/spice_probe.sym} 80 -440 0 1 {name=p41 attrs=""
-spice_ignore=true}
-C {devices/ammeter.sym} 240 -470 2 0 {name=VDD
-spice_ignore=true}
+}
+C {devices/spice_probe.sym} 80 -460 0 1 {name=p41 attrs=""
+}
+C {devices/ammeter.sym} -20 -410 2 0 {name=VDD
+}
 C {devices/spice_probe.sym} -1290 -505 0 1 {name=p12 attrs=""
 }
 C {devices/spice_probe.sym} -1050 -500 0 1 {name=p35 attrs=""
@@ -902,7 +875,7 @@ C {devices/spice_probe.sym} -1050 -500 0 1 {name=p35 attrs=""
 C {devices/lab_pin.sym} -725 -530 1 1 {name=p43 sig_type=std_logic lab=VSS
 }
 C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1020 -110 0 0 {name=R19
-L=0.9
+L=0.93
 model=res_xhigh_po_0p35
 spiceprefix=X
 mult=1}
