@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1725582252
+timestamp 1726096456
 << viali >>
 rect 4474 18582 5276 19236
 rect 4578 3408 5666 4154
@@ -133,7 +133,7 @@ rect 22634 0 22814 200
 rect 26498 0 26678 200
 rect 30362 0 30542 200
 use core_prel  core_prel_0
-timestamp 1725582067
+timestamp 1726091165
 transform 1 0 -2818 0 1 22277
 box 6004 -19007 24007 -2979
 << labels >>

@@ -25,9 +25,8 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color="4 5"
-node="vbgr_parax
-vbgr"}
+color=4
+node=vbgr_parax}
 C {devices/vsource.sym} -400 125 0 0 {name=V1 value=1.8 savecurrent=false
 spice_ignore=true}
 C {devices/vsource.sym} -490 125 0 0 {name=V2 value=0 savecurrent=false
@@ -62,7 +61,7 @@ value="
 .lib $::SKYWATER_MODELS/sky130.lib.spice tt
 
 "
-spice_ignore=false
+
 }
 C {devices/lab_pin.sym} -140 -97.5 3 1 {name=p1 sig_type=std_logic lab=VDD
 }
@@ -71,7 +70,7 @@ C {devices/lab_pin.sym} -140 -77.5 0 0 {name=p2 sig_type=std_logic lab=VSS
 C {devices/lab_pin.sym} 160 -97.5 3 1 {name=p4 sig_type=std_logic lab=Vbgr
 }
 C {devices/res.sym} 160 -67.5 0 0 {name=R1
-value=11G
+value=110G
 footprint=1206
 device=resistor
 m=1
@@ -87,7 +86,7 @@ C {devices/lab_pin.sym} -130 -240 0 0 {name=p7 sig_type=std_logic lab=VSS
 C {devices/lab_pin.sym} 170 -260 3 1 {name=p9 sig_type=std_logic lab=Vbgr_parax
 }
 C {devices/res.sym} 170 -230 0 0 {name=R2
-value=11G
+value=110G
 footprint=1206
 device=resistor
 m=1

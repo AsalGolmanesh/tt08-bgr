@@ -2,6 +2,7 @@
 x Vbgr VSS w_18582_n15452# w_18582_n15452# s=11600,516 d=11600,516 l=2000 w=200 x=18778 y=-13924 sky130_fd_pr__pfet_01v8_lvt
 x a_20010_n11618# a_19776_n11398# a_20010_n12050# VSS s=59616,1140 d=59616,1140 l=220 w=0 x=20010 y=-11617 sky130_fd_pr__res_xhigh_po_0p69
 x w_18582_n15452# MINUS VDD VDD s=29000,1058 d=29000,1058 l=100 w=1000 x=20320 y=-10012 sky130_fd_pr__pfet_01v8_lvt
+x VDD VDD VDD VDD d=11600,516 l=2000 w=200 x=18743 y=-13138 sky130_fd_pr__pfet_01v8_lvt
 x VDD VDD VDD VDD d=58000,2116 l=100 w=1000 x=18424 y=-10012 sky130_fd_pr__pfet_01v8_lvt
 x VSS XQ2[0,0].Emitter VSS s=462400,2720 l=0 w=0 x=12512 y=-14496 sky130_fd_pr__pnp_05v5_W3p40L3p40
 x VSS XQ2[0,0].Emitter VSS s=462400,2720 l=0 w=0 x=15088 y=-17072 sky130_fd_pr__pnp_05v5_W3p40L3p40
@@ -74,7 +75,6 @@ x w_18582_n15452# Vbgr VDD VDD s=29000,1058 d=29000,1058 l=100 w=1000 x=19688 y=
 x VSS XQ2[0,0].Emitter VSS s=462400,2720 l=0 w=0 x=11224 y=-17072 sky130_fd_pr__pnp_05v5_W3p40L3p40
 x VSS XQ2[0,0].Emitter VSS s=462400,2720 l=0 w=0 x=12512 y=-15784 sky130_fd_pr__pnp_05v5_W3p40L3p40
 x VSS XQ2[0,0].Emitter VSS s=462400,2720 l=0 w=0 x=12512 y=-11920 sky130_fd_pr__pnp_05v5_W3p40L3p40
-x VDD VDD VDD VDD d=11600,516 l=2000 w=200 x=18743 y=-13150 sky130_fd_pr__pfet_01v8_lvt
 x VSS XQ2[0,0].Emitter VSS s=462400,2720 l=0 w=0 x=9936 y=-17072 sky130_fd_pr__pnp_05v5_W3p40L3p40
 x a_19074_n11618# a_18840_n11398# a_19074_n12050# VSS s=59616,1140 d=59616,1140 l=220 w=0 x=19074 y=-11617 sky130_fd_pr__res_xhigh_po_0p69
 x Gcm1 VDD Gcm1 VDD s=23200,858 d=23200,858 l=200 w=800 x=8983 y=-8724 sky130_fd_pr__pfet_01v8_lvt
@@ -99,18 +99,18 @@ x VSS XQ2[0,0].Emitter VSS s=462400,2720 l=0 w=0 x=9936 y=-15784 sky130_fd_pr__p
 x VSS XQ2[0,0].Emitter VSS s=462400,2720 l=0 w=0 x=9936 y=-11920 sky130_fd_pr__pnp_05v5_W3p40L3p40
 x VSS XQ2[0,0].Emitter VSS s=462400,2720 l=0 w=0 x=11224 y=-11920 sky130_fd_pr__pnp_05v5_W3p40L3p40
 x MINUS Sop w_18582_n15452# VSS s=46400,1658 d=46400,1658 l=800 w=1600 x=13711 y=-8707 sky130_fd_pr__nfet_01v8_lvt
+C XQ2[0,0].Emitter MINUS 4.5
 C Vbgr w_18582_n15452# 7.7
-C MINUS w_18582_n15452# 3.3
-C Vbgr VDD 3.1
+C MINUS PLUS 2.4
 C VDD MINUS 2.5
 C VDD Gcm1 3.2
-C MINUS PLUS 2.4
+C Vbgr VDD 3.1
+C MINUS w_18582_n15452# 3.3
 C VDD w_18582_n15452# 8.2
-C XQ2[0,0].Emitter MINUS 4.5
 C Vbgr0 10.8
 R Vbgr 15137
-C VDD0 70.6
-R VDD 87808
+C VDD0 70.7
+R VDD 87871
 R VSS 267676
 = VSS XQ2[5,4].Base
 = VSS XQ2[5,4].Collector
